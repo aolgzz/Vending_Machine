@@ -91,29 +91,25 @@
 
 <div align = "justify">
 
-El programa por realizar en Scheme es un simulador de una máquina expendedora que puede tener diversos productos de diferentes precios y que sólo acepta pagos con monedas, teniendo la capacidad de dar cambio si un pago lo requiere.
+This Racket program consist of a "simulator" of a vending machine that can hold a wide variety of products of different prices, and payments can be with coins or bills, it is able to return change if requiered to do so. 
 
-Las máquinas expendedoras en esta simulación tienen “slots” o cajones, cada uno con un inventario del producto a la venta. Cada slot está identificado con una letra, lo que le permite al comprador indicar qué producto quiere. Así mismo, cada slot tiene el precio del producto asociado.
+The machine has slots, each of them with an inventory of the product for sale. Each slot is identified with an ID, which allows the user to choose which product is of its desire.  Likewise, each slot has the price of the associated product.
 
-Por otro lado, la máquina también tiene un compartimiento no visible para el usuario, en donde se almacenan las monedas. Las monedas que se manejarán en esta máquina son de las siguientes denominaciones: $1, $2, $5, $10, $20 y $50 pesos. Cuando una máquina empieza a operar, tiene un inventario mínimo de monedas para poder dar cambio. Conforme hay ventas, este inventario se incrementa.
+On the other hand, the machine also has an invisible compartment to the user, in which the money is stored. The coins, and bills used by default are of the following denominations: $1, $2, $5, $10, $20, and $50. Also by default, when the machine begins to operate it has a minimum money inventory for giving change. As there are sales, this inventory changes. (All this default values can later be modified, that is explain later in the Getting Started section).
 
-El contenido de la máquina será modelado en Scheme con una lista en la que se pueda identificar claramente el contenido de la máquina, tanto lo de los slots, como lo de las monedas almacenadas. Esta información será guardada permanentemente en un archivo texto que contenga la lista con los datos. El programa leerá al inicio los datos de este archivo, y trabajará las transacciones de la simulación grabando cada vez en el archivo la lista actualizada.
+The inside of the machine is modeled with matrices in which is clear to identify the machine's inventory, both of the slots of the products, and of the money denominations (backend). This information is stored in two text files. The program will read both files, depending on how sales progress is that the backend is updated (there are cases in which it remains the same).
 
-La simulación consistirá en procesar las transacciones de venta que estarán en otro archivo de texto con los datos de estas. Cada transacción de venta se identifica con la letra del producto a comprar y la secuencia de monedas que se depositan para la compra. El programa al procesar una transacción indicará con letreros en pantalla si la compra se realiza y las monedas sobrantes en caso de que las haya. Obviamente, cada transacción deberá actualizar los inventarios correspondientes. Cuando una transacción no sea posible, se deberá indicar con un mensaje la situación, por ejemplo, una venta no posible por falta de producto, o un sobrante de monedas no factible de entregar.
+The simulation consists in processing sales transactions which will be stored in a third text file. Each transaction is identified with the product's ID, and the sequence of coins, and bills that are inserted for its purchase. When processing a transaction, the program will write into (frontend) a fourth text file (this file will behave as the machine's sales report/receipt) if the purchase is made and the remaining coins, if any. Obviously, each transaction must update the corresponding inventories (backend). When a transaction is not possible, the situation must be indicated with a message, for example, a sale not possible due to lack of product, or a surplus of coins that cannot be delivered.
 
-Cuando el programa haya realizado todas las transacciones de venta del archivo de entrada, dará los siguientes resultados:
+When the program has processed all the sales transactions of the input file, it will give the following results:
 
-Ganancia obtenida después de todas las transacciones de venta.
-Productos con poco inventario o inventario nulo.
-Denominaciones de monedas que tienen el repositorio lleno o casi lleno.
-Denominaciones de monedas que tienen poco inventario o nulo.
-El criterio para identificar poco inventario y repositorio lleno puede ser diseñado libremente en el programa, pero deberá estar claramente documentado en el código.
+- The total revenue after all valid transactions have been processed.
+- Products with little or no inventory.
+- Money denominations with nearly or full inventory.
+- Money denominations with little or no inventory.
 
-Por lo pronto, no habrá una interfase para modificar inventarios a través del programa. Cualquier ajuste de inventario para las pruebas de simulación se hará directamente en la lista de datos de la máquina.
+Note: The machine uses a Finite State Machine that processes all sales transactions, depening on them they may have the following states: invalid denomination inserted, not enough credit, no change (exact paymente), and give change.
 
-La interfase de ejecución para este programa es completamente libre, y no se requiere nada gráfico ni especializado. Incluso, se puede manejar directamente la llamada a funciones desde el intérprete de Dr. Racket. Lo importante es que los datos se lean de los archivos correspondientes, se actualice el archivo de la máquina, y se desplieguen en pantalla los resultados esperados después de todas las transacciones.
-
-En cuanto a los algoritmos para procesar las transacciones, el programa DEBERÁ utilizar un autómata de estados finitos para reconocer el pago con las monedas. El diseño del mismo es clave para el funcionamiento correcto del programa, y deberá considerar los diferentes precios de los productos, así como el control de los inventarios correspondientes.
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -131,9 +127,6 @@ En cuanto a los algoritmos para procesar las transacciones, el programa DEBERÁ 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
@@ -141,27 +134,7 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   npm install npm@latest -g
   ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
+  
 <!-- USAGE EXAMPLES -->
 ## Usage
 
