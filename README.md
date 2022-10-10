@@ -80,13 +80,41 @@
 </details>
 
 
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<div align = "center">
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+[![Product Name Screen Shot][product-screenshot]](https://github.com/aolgzz/Vending_Machine)
+
+</div>
+
+<div align = "justify">
+
+El programa por realizar en Scheme es un simulador de una máquina expendedora que puede tener diversos productos de diferentes precios y que sólo acepta pagos con monedas, teniendo la capacidad de dar cambio si un pago lo requiere.
+
+Las máquinas expendedoras en esta simulación tienen “slots” o cajones, cada uno con un inventario del producto a la venta. Cada slot está identificado con una letra, lo que le permite al comprador indicar qué producto quiere. Así mismo, cada slot tiene el precio del producto asociado.
+
+Por otro lado, la máquina también tiene un compartimiento no visible para el usuario, en donde se almacenan las monedas. Las monedas que se manejarán en esta máquina son de las siguientes denominaciones: $1, $2, $5, $10, $20 y $50 pesos. Cuando una máquina empieza a operar, tiene un inventario mínimo de monedas para poder dar cambio. Conforme hay ventas, este inventario se incrementa.
+
+El contenido de la máquina será modelado en Scheme con una lista en la que se pueda identificar claramente el contenido de la máquina, tanto lo de los slots, como lo de las monedas almacenadas. Esta información será guardada permanentemente en un archivo texto que contenga la lista con los datos. El programa leerá al inicio los datos de este archivo, y trabajará las transacciones de la simulación grabando cada vez en el archivo la lista actualizada.
+
+La simulación consistirá en procesar las transacciones de venta que estarán en otro archivo de texto con los datos de estas. Cada transacción de venta se identifica con la letra del producto a comprar y la secuencia de monedas que se depositan para la compra. El programa al procesar una transacción indicará con letreros en pantalla si la compra se realiza y las monedas sobrantes en caso de que las haya. Obviamente, cada transacción deberá actualizar los inventarios correspondientes. Cuando una transacción no sea posible, se deberá indicar con un mensaje la situación, por ejemplo, una venta no posible por falta de producto, o un sobrante de monedas no factible de entregar.
+
+Cuando el programa haya realizado todas las transacciones de venta del archivo de entrada, dará los siguientes resultados:
+
+Ganancia obtenida después de todas las transacciones de venta.
+Productos con poco inventario o inventario nulo.
+Denominaciones de monedas que tienen el repositorio lleno o casi lleno.
+Denominaciones de monedas que tienen poco inventario o nulo.
+El criterio para identificar poco inventario y repositorio lleno puede ser diseñado libremente en el programa, pero deberá estar claramente documentado en el código.
+
+Por lo pronto, no habrá una interfase para modificar inventarios a través del programa. Cualquier ajuste de inventario para las pruebas de simulación se hará directamente en la lista de datos de la máquina.
+
+La interfase de ejecución para este programa es completamente libre, y no se requiere nada gráfico ni especializado. Incluso, se puede manejar directamente la llamada a funciones desde el intérprete de Dr. Racket. Lo importante es que los datos se lean de los archivos correspondientes, se actualice el archivo de la máquina, y se desplieguen en pantalla los resultados esperados después de todas las transacciones.
+
+En cuanto a los algoritmos para procesar las transacciones, el programa DEBERÁ utilizar un autómata de estados finitos para reconocer el pago con las monedas. El diseño del mismo es clave para el funcionamiento correcto del programa, y deberá considerar los diferentes precios de los productos, así como el control de los inventarios correspondientes.
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -220,6 +248,6 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [issues-url]: https://github.com/aolgzz/Vending_Machine/issues
 [license-shield]: https://img.shields.io/github/license/aolgzz/Vending_Machine.svg?style=for-the-badge
 [license-url]: https://github.com/aolgzz/Vending_Machine/blob/master/LICENSE.txt
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/_screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
